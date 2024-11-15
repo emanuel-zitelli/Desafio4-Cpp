@@ -5,20 +5,34 @@ class Vehiculo
 {
 public:
 
-    //Vehiculo(const std::string& marca, const std::string& modelo, const int year, bool seguroAlDia, int accidentesRegistrados)
-    //: marca(marca), modelo(modelo), year(year), seguroAlDia(seguroAlDia), accidentesRegistrados(accidentesRegistrados) {} //constructor de vehiculos
+    Vehiculo(const std::string& marca, const std::string& modelo)
+    : marca(marca), modelo(modelo) {} //constructor de vehiculos
 
-    
-    
+    //setter
+    void setNafta(double nafta)
+    {
+        litrosNafta = nafta;
+    }
+    //getters
+    double getNafta()
+    {
+        return litrosNafta;
+    }
 
+    std::string getMarca()
+    {
+        return marca;
+    }
+
+    std::string getModelo()
+    {
+        return modelo;
+    }
 protected: 
 
     std::string marca;
     std::string modelo;
-    int year;
-    bool seguroAlDia;
-    int accidentesRegistrados;
-    double litrosNafta;
+    double litrosNafta=0;
 
 };
 

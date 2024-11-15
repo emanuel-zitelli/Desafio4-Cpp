@@ -1,4 +1,4 @@
-#include "mainHeader.hpp"
+#include "mainHeaderOCP.hpp"
 
 
 int main()
@@ -7,7 +7,7 @@ int main()
     Servicios* mantenimiento = new Servicios();
     std::vector<Vehiculo*> listadoVehiculos;
     
-    opcion=mensaje_Bienvenida();
+    opcion=mensaje_Bienvenida("Bienvenido! Ingrese la operacion que desea hacer");
     while(opcion!=Opcion::Finalizar)
     {
         std::cin.ignore();
@@ -27,7 +27,7 @@ int main()
                 break;
         }
         
-        opcion=mensaje_Bienvenida();
+        opcion=mensaje_Bienvenida("Ingrese otra operacion:");
     }
 
     //liberamos memoria dinamica del heap. sino al finalizar el programa no se libera, y en algunas ejecuciones se crashea el programa

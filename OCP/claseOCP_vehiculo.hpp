@@ -5,26 +5,35 @@ class Vehiculo
 {
 public:
 
-    Vehiculo(const std::string& marca, const std::string& modelo, const int year, bool seguroAlDia, int accidentesRegistrados)
-    : marca(marca), modelo(modelo), year(year), seguroAlDia(seguroAlDia), accidentesRegistrados(accidentesRegistrados) {} //constructor de vehiculos
+    Vehiculo(const std::string& marca, const std::string& modelo)
+    : marca(marca), modelo(modelo) {} //constructor de vehiculos
 
-    void mostrarInfo() const
+    virtual double calcularCostos(double precioBase) = 0; //extiende las funcionalidades de vehiculo en sus hijas, sin modificar la estructura de vehiculo
+    //setter
+    void setNafta(double nafta)
     {
-
+        litrosNafta = nafta;
     }
-    void pedirInfo(double km)
+    //getters
+    double getNafta()
     {
-
+        return litrosNafta;
     }
-    
 
+    std::string getMarca()
+    {
+        return marca;
+    }
+
+    std::string getModelo()
+    {
+        return modelo;
+    }
 protected: 
 
     std::string marca;
     std::string modelo;
-    int year;
-    bool seguroAlDia;
-    int accidentesRegistrados;
+    double litrosNafta=0;
 
 };
 #endif
