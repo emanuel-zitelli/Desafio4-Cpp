@@ -1,4 +1,4 @@
-#include "mainHeaderOCP.hpp"
+#include "mainHeaderLSP.hpp"
 
 bool mostrarLista(std::vector<Vehiculo*>& lista) // Devuelve un bool para saber si hay vehiculos. Si no hay no quiero habilitar los inputs
 {   
@@ -44,7 +44,8 @@ short int mensaje_Bienvenida(std::string mensaje)
     std::cout 
         << mensaje << ": \n"
         << "Ingresar Vehiculo: " << Opcion::Agregar << "\n"
-        << "Ingresar Mostrar Vehiculos: " << Opcion::Mostrar << "\n"
+        << "Mostrar Vehiculos: " << Opcion::Mostrar << "\n"
+        << "Mover Vehiculos: " << Opcion::Mover << "\n"
         << "Finalizar: " << Opcion::Finalizar << "\n";
 
         std::cin >> opcion;
@@ -113,58 +114,38 @@ void agregarVehiculo(std::vector<Vehiculo*>& listadoVehiculos, Servicios* manten
 
     
 }
-
-/*
-bool mostrarLista(std::vector<Vehiculo*>& lista) // Devuelve un bool para saber si hay vehiculos. Si no hay no quiero habilitar los inputs
-{   
-    char quiereRecargar;
-    double bateria;
+void moverVehiculo(std::vector<Vehiculo*>& lista)
+{
+    short int numVehiculo;
+    double kilometraje;
 
     system("cls");
+    
 
-    if (lista.size() == 0)
+    switch (lista.size())
     {
-        std::cout << "No hay vehiculos ingresados\n";
-        return false;
-    }
-    else
-    {
-        std::cout << "\nLista de Vehiculos:" << "\n";
-        for (int i = 0; i < lista.size(); i++)
+    case 0:
+        std::cout << "No hay vehiculos cargados para moverlo\n";
+        break;
+
+    default:
+        mostrarLista(lista);
+        do
         {
-            Vehiculo* vehiculo = lista[i];
-            Electricidad* vehiculoElectrico = dynamic_cast<Electricidad*>(vehiculo); // Verificar si el vehículo es eléctrico usando dynamic_cast
+            std::cout << "Ingrese el numero de vehiculo que desea mover: ";
+            std::cin >> numVehiculo;
+        } while (numVehiculo < 1 || numVehiculo > lista.size());
 
-            if (vehiculoElectrico) // Se cumple la condicion con un puntero no nulo, o sea, vehiculo electrico
-            {
-                // Se cumple la condicion si vehiculo (puntero del elemento i) es un tipo de puntero Electricidad (un puntero derivado)
-                std::cout << "El siguiente vehiculo es electrico:\n" << i+1 << ". ";
-                
-                (*lista[i]).mostrarInfo();
-                std::cout << "\n";
+        do
+        {
+            std::cout << "Ingrese los kilometros que lo quiere mover: ";
+            std::cin >> kilometraje;
+        } while (kilometraje < 0);
 
-                std::cout << "Desea recargarlo? (Y/N): ";
-                std::cin >> quiereRecargar;
-                std::tolower(quiereRecargar);
-
-                if(quiereRecargar == 'y')
-                {
-                    bateria=validarCarga((*vehiculoElectrico).getBateria());
-                    if(bateria!=-1)
-                        (*vehiculoElectrico).cargarBateria(bateria);
-                    else
-                        std::cout << "Operacion Fallida. Vuelva a intentarlo despues. \n";
-                }
-            }
-            else
-            {
-                // solo mostramos la info del vehiculo
-                std::cout << i+1 << ". ";
-                (*lista[i]).mostrarInfo();
-                std::cout << "\n";
-            }
-        }
-        return true;
+        if ((*(lista[numVehiculo - 1])).getNafta() - (kilometraje / 20) < 0)
+            std::cout << "No hay suficiente nafta para recorrer esos kilometros ";
+        else
+            (*lista[numVehiculo - 1]).mover(kilometraje);
+        break;
     }
 }
-*/

@@ -1,4 +1,4 @@
-#include "mainHeaderOCP.hpp"
+#include "mainHeaderISP.hpp"
 
 
 int main()
@@ -20,6 +20,10 @@ int main()
 
             case Opcion::Mostrar :
                 mostrarLista(listadoVehiculos);
+                break;
+                
+            case Opcion::Mover :
+                moverVehiculo(listadoVehiculos);
                 break;
 
             default :

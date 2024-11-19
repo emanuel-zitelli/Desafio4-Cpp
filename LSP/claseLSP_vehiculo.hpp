@@ -10,6 +10,12 @@ public:
 
     virtual double calcularCostos(double precioBase) = 0; //extiende las funcionalidades de vehiculo en sus hijas, sin modificar la estructura de vehiculo
     
+    //metodo implementado directamente en la clase
+    void mover(double kilometros)
+    {
+        litrosNafta -= (kilometros/20); //cada 20 kilometros se pierde 1 litro de nafta
+    }
+
     //setter
     void setNafta(double nafta)
     {

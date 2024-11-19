@@ -10,11 +10,10 @@ public:
 
     virtual double calcularCostos(double precioBase) = 0; //extiende las funcionalidades de vehiculo en sus hijas, sin modificar la estructura de vehiculo
     
+    
+
     //setter
-    void setNafta(double nafta)
-    {
-        litrosNafta = nafta;
-    }
+    
 
     //getters
     double getNafta()
@@ -40,7 +39,7 @@ protected:
 
     std::string marca;
     std::string modelo;
-    double litrosNafta=0;
+    
 
     double costoCalculado;
 
