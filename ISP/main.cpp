@@ -4,7 +4,7 @@
 int main()
 {
     short int opcion;
-    Servicios* mantenimiento = new Servicios();
+    //Servicios* mantenimiento = new Servicios();
     std::vector<Vehiculo*> listadoVehiculos;
     
     opcion=mensaje_Bienvenida("Bienvenido! Ingrese la operacion que desea hacer");
@@ -15,7 +15,7 @@ int main()
         switch(opcion)
         {
             case Opcion::Agregar :
-                agregarVehiculo(listadoVehiculos, mantenimiento);
+                agregarVehiculo(listadoVehiculos); //, mantenimiento
                 break;
 
             case Opcion::Mostrar :
@@ -36,7 +36,7 @@ int main()
 
     //liberamos memoria dinamica del heap. sino al finalizar el programa no se libera, y en algunas ejecuciones se crashea el programa
     limpieza(listadoVehiculos);
-    delete mantenimiento;
+    //delete mantenimiento;
 
     return 0;
 }

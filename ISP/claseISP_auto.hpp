@@ -1,7 +1,7 @@
-#ifndef CLASEOCP_HELICOPTERO_HPP
-#define CLASEOCP_HELICOPTERO_HPP
+#ifndef CLASEISP_AUTO_HPP
+#define CLASEISP_AUTO_HPP
 
-class Auto : public Vehiculo, public Servicios
+class Auto : public Vehiculo, public iMovil, public iMantenimiento
 {
 public:
 
@@ -16,5 +16,31 @@ public:
 
         return costoCalculado;
     }
+
+    void mover(double kilometros) override 
+    {
+        (litrosNafta -= (kilometros/10)); //cada 10 kilometros se pierde 1 litro de nafta
+    }
+
+    void cargaCombustible(int litros) override
+    {
+        setCombustible(litros);
+    }
+
+    void setCombustible(int nafta) override
+    {
+        litrosNafta = nafta;
+    }
+    
+
+    int getCombustible() override
+    {
+        return litrosNafta;
+    }
+
+protected:
+
+    int litrosNafta = 0;
+    
 };
 #endif 

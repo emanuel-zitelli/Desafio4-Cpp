@@ -1,5 +1,5 @@
-#ifndef CLASEOCP_CAMIONETA_HPP
-#define CLASEOCP_CAMIONETA_HPP
+#ifndef CLASELSP_CAMION_HPP
+#define CLASELSP_CAMION_HPP
 
 class Camion : public Vehiculo, public Servicios
 {
@@ -18,4 +18,4 @@ public:
         return costoCalculado;
     }
 };
-#endif //CLASE_CAMIONETA_HPPC
+#endif 

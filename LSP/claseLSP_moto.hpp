@@ -1,5 +1,5 @@
-#ifndef CLASEOCP_CAZA_HPP
-#define CLASEOCP_CAZA_HPP
+#ifndef CLASELSP_MOTO_HPP
+#define CLASELSP_MOTO_HPP
 
 class Moto : public Vehiculo, public Servicios
 {

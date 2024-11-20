@@ -1,7 +1,7 @@
-#ifndef CLASEOCP_CAMIONETA_HPP
-#define CLASEOCP_CAMIONETA_HPP
+#ifndef CLASEISP_CAMION_HPP
+#define CLASEISP_CAMION_HPP
 
-class Camion : public Vehiculo, public Servicios
+class Camion : public Vehiculo, public iMovil, public iMantenimiento
 {
 public:
 
@@ -17,5 +17,30 @@ public:
 
         return costoCalculado;
     }
+
+    void mover(double kilometros) override 
+    {
+        (diesel -= (kilometros/5)); //cada 5 kilometros se pierde 1 litro de nafta
+    }
+
+    void cargaCombustible(int litros) override
+    {
+        setCombustible(litros);
+    }
+
+    void setCombustible(int nafta) override
+    {
+        diesel = nafta;
+    }
+    
+
+    int getCombustible() override
+    {
+        return diesel;
+    }
+
+protected:
+
+    int diesel = 0;
 };
 #endif //CLASE_CAMIONETA_HPPC

@@ -1,5 +1,5 @@
-#ifndef CLASEOCP_HELICOPTERO_HPP
-#define CLASEOCP_HELICOPTERO_HPP
+#ifndef CLASEOCP_AUTO_HPP
+#define CLASEOCP_AUTO_HPP
 
 class Auto : public Vehiculo, public Servicios
 {

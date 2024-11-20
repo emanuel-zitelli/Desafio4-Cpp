@@ -1,5 +1,0 @@
-#ifndef CLASE_IMANTENIMIENTO_HPP
-#define CLASE_IMANTENIMIENTO_HPP
-
-
-#endif 

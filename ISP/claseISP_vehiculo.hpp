@@ -1,5 +1,5 @@
-#ifndef CLASEOCP_VEHICULO_HPP
-#define CLASEOCP_VEHICULO_HPP
+#ifndef CLASEISP_VEHICULO_HPP
+#define CLASEISP_VEHICULO_HPP
 
 class Vehiculo
 {
@@ -10,16 +10,7 @@ public:
 
     virtual double calcularCostos(double precioBase) = 0; //extiende las funcionalidades de vehiculo en sus hijas, sin modificar la estructura de vehiculo
     
-    
-
-    //setter
-    
-
     //getters
-    double getNafta()
-    {
-        return litrosNafta;
-    }
 
     std::string getMarca()
     {
